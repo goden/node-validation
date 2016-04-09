@@ -1,2 +1,3 @@
 var validation = require("./lib/index.js");
-validation.sayHi();
+console.log(validation.isEmail("goden.incredible@gmail.com"));
+console.log(validation.isEmail("goden.incredible"));
