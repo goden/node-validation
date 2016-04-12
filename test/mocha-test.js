@@ -7,12 +7,10 @@ describe('#Verify node-validation module...', function() {
 
 	var emails = new Array();
 
-	// before('---> Prepare all datas for testing...', function() {
 	emails.push('goden.incredible@gmail.com');
 	emails.push('goden690426@yahoo.com.tw');
 	emails.push('1234@123.222');
 	emails.push('^abc.demo.com');
-	// });
 	
 	describe('#Verify isEmail()...', function() {
 		emails.forEach(function(email) {
@@ -28,6 +26,7 @@ describe('#Verify node-validation module...', function() {
 	strings.push('aaaaabbbbbbcccc');
 	strings.push('&^%$#');
 	strings.push('12345');
+	strings.push('123.45');
 
 	describe('#Verify isEnglish()...', function() {
 		strings.forEach(function(str) {
@@ -38,5 +37,31 @@ describe('#Verify node-validation module...', function() {
 			});
 		});
 	});
+
+	describe('#Verify isNumeric()...', function() {
+		strings.forEach(function(str) {
+			describe('Verify if [' + str + '] format...', function() {
+				it('Verify if [' + str + '] is valid...', function() {
+					assert.equal(true, validation.isNumeric(str));
+				});
+			});
+		});
+	});
+	
+	var urls = new Array();
+	urls.push('http://tw.yahoo.com');
+	urls.push('https://gmail.com');
+	urls.push('http://192.168.0.1');
+
+	describe('#Verify isUrl()...', function() {
+		urls.forEach(function(url) {
+			describe('Verify if [' + url + '] format...', function() {
+				it('Verify if [' + url + '] is valid...', function() {
+					assert.equal(true, validation.isUrl(url));
+				});
+			});
+		});
+	});
+
 
 });
