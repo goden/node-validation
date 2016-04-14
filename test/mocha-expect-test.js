@@ -2,9 +2,7 @@
 
 // var validation = require('../lib/index.js');
 var chai = require('chai');
-
 var expect = chai.expect;
-var should = chai.should();
 
 var goden = {
 	name: 'Goden',
@@ -29,6 +27,7 @@ describe('#Verify Chai Assertion library...', function() {
 
 	// =============================================================================================================
 
+	// expect
 	describe('.not() - Negates any of assertions following in the chain.', function() {
 		it('Verify expect(goden.wife.name).to.not.equal(\'Mary\')...', function() {
 			expect(goden.wife.name).to.not.equal('Mary');
@@ -42,23 +41,6 @@ describe('#Verify Chai Assertion library...', function() {
 			expect(goden.wife).to.have.property('age').and.to.not.equal(20);
 		});
 	});
-
-	describe('.not() - Negates any of assertions following in the chain.', function() {
-		it('Verify expect(goden.wife.name).to.not.equal(\'Mary\')...', function() {
-			// expect(goden.wife.name).to.not.equal('Mary');
-			(goden.wife.name).should.equal('Grace');
-		});
-
-		it('Verify expect(goden.age).not.equal(20)...', function() {
-			// expect(goden.age).to.not.equal(20);
-		});
-
-		it('Verify expect(goden.wife).to.have.property(\'age\').and.to.not.equal(20)...', function() {
-			// expect(goden.wife).to.have.property('age').and.to.not.equal(20);
-		});
-	});
-
-	// ===========================================================================================================
 
 	describe('.any() - Sets the any flag, (opposite of the all flag) later used in the \'keys\' assertion.', function() {
 		it('Verify expect(goden).to.have.any.keys(\'name\', \'age\')...', function() {
